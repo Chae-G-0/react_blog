@@ -53,6 +53,15 @@ function App() {
               {good + 1}
             </h4>
             <p>2월 17일 발행</p>
+            <button
+              onClick={() => {
+                let del = [...skill];
+                del.splice(idx, 1);
+                setSkill(del);
+              }}
+            >
+              삭제하기
+            </button>
           </div>
         );
       })}
@@ -61,9 +70,17 @@ function App() {
         type="text"
         onChange={(e) => {
           setValue(e.target.value);
-          console.log(value);
         }}
       />
+      <button
+        onClick={() => {
+          let plus = [...skill];
+          plus.unshift(value);
+          setSkill(plus);
+        }}
+      >
+        작성
+      </button>
     </div>
   );
 }
